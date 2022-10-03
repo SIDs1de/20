@@ -1,0 +1,442 @@
+// Главный файл, где пишутся и куда подключаются все стили проекта
+
+// Импорт дополнительных файлов стилей и настроек
+@import "variables";
+@import "../../node_modules/normalize.css/normalize";
+@import "start";
+@import "mixins/font-face";
+@import "mixins/adaptive-value";
+@import "fonts";
+@import "global";
+
+// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
+// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
+// увеличивались / уменьшались в границах от десктопного значения до телефонного
+// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
+$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
+$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
+
+// Основные свойства
+html,
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.wow {
+  visibility: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+// Основная часть
+* {
+  outline: 0px solid rgba(251, 150, 255, 0.25);
+  transition: outline 0.1s;
+  &:focus {
+    outline: 5px solid rgba(251, 150, 255, 0.25);
+  }
+}
+.header {
+  background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
+  position: relative;
+  transition: background-position 0.8s;
+  &:hover {
+    background-position: 0 0;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+  &::before {
+    width: 472px;
+    height: 513px;
+    background: url("../images/header/leave-1.png") center/contain no-repeat;
+    bottom: -220px;
+    left: -110px;
+    z-index: 2;
+  }
+  &::after {
+    width: 280px;
+    height: 260px;
+    background: url("../images/header/leave-2.png") center/contain no-repeat;
+    bottom: 200px;
+    right: -100px;
+    z-index: 2;
+  }
+  &__inner {
+    padding-top: 134px;
+    padding-bottom: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+  &__title-wrapper {
+    &:hover ~ .woman {
+      filter: drop-shadow(2px 0px 20px rgba(#fff, 0.4));
+    }
+  }
+  &__title-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &__title {
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 130%;
+    color: #fff;
+    flex: 0 1 380px;
+    position: relative;
+    z-index: 4;
+  }
+  &__title-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &__bottom-link {
+    font-size: 20px;
+    line-height: calc(27 / 20);
+    color: #fff;
+    padding: 27px 127px 31px;
+    background: linear-gradient(92.44deg, #ff7676 0%, #ff76f1 100%);
+    backdrop-filter: blur(50px);
+    border-radius: 85px;
+    transition: transform 0.4s, outline 0.1s;
+    span {
+      position: relative;
+      z-index: 1;
+    }
+    &:hover {
+      transform: rotate(3deg);
+    }
+    &:hover::after {
+      opacity: 1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(92.44deg, #ff76f1 0%, #ff7676 100%);
+      border-radius: 85px;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+  }
+  &__insta-block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 10px 10px 163px;
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    z-index: 4;
+  }
+}
+
+.main-title {
+  font-family: "Dela Gothic One";
+  font-weight: 400;
+  font-size: 157px;
+  line-height: 1;
+  background: linear-gradient(93.75deg, #ffffff -2.53%, #efefef 79.58%, #ffffff 102.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  transition: transform 0.4s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &--bottom {
+    transform-origin: left;
+    position: relative;
+    z-index: 1;
+  }
+  &--top {
+    transform-origin: right;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.insta {
+  &:hover {
+    .insta__count {
+      letter-spacing: 2px;
+    }
+  }
+  &__count {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #513939;
+    transition: letter-spacing 0.3s;
+  }
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 42px;
+    padding-right: 17px;
+    display: flex;
+    align-items: center;
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #ffffff;
+    background: url("../images/header/insta-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      width: 24px;
+      height: 24px;
+      background: url("../images/header/insta.svg") center/contain no-repeat;
+    }
+  }
+}
+
+.woman {
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  bottom: -410px;
+  left: 51%;
+  z-index: 2;
+  transform: translateX(-50%);
+  width: 835px;
+  transition: filter 0.4s;
+  &__img {
+    width: 100%;
+  }
+}
+
+.about {
+  padding: 130px 0 185px;
+  background: url("../images/about/main-bg.jpg") center/cover no-repeat fixed;
+  position: relative;
+  transition: background-position 0.8s;
+  &:hover {
+    background-position: 100% 100%;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 260px;
+    background: url("../images/header/leave-2.png") center/contain no-repeat;
+    bottom: 0;
+    transform: translateY(45%) rotate(-65deg);
+    right: -100px;
+    z-index: 2;
+  }
+  &__inner {
+  }
+  &__title {
+  }
+  &__text-wrapper {
+    max-width: 580px;
+    margin: 25px auto 0;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+    color: #000000;
+  }
+  &__par {
+    span {
+      color: #ff7697;
+      font-weight: 800;
+      transition: color 0.2s;
+      &:hover {
+        color: darken(#ff7697, 10%);
+      }
+    }
+  }
+  &__par + &__par {
+    margin-top: 15px;
+  }
+}
+
+.who {
+  position: relative;
+  background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
+  transition: background-position 0.8s;
+  padding: 100px 0 145px;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+  &::before {
+    left: 0;
+    bottom: 0;
+    transform: translateY(50%) translateX(-40%);
+    width: 585px;
+    height: 551px;
+    background: url("../images/who/leave.png") center/contain no-repeat;
+    z-index: 2;
+  }
+  &::after {
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%) translateX(35%);
+    width: 498px;
+    height: 578px;
+    background: url("../images/who/bolt.png") center/contain no-repeat;
+    z-index: 2;
+  }
+  &:hover {
+    background-position: 100% 100%;
+  }
+  &__inner {
+  }
+  &__title {
+    margin-bottom: 67px;
+  }
+  &__list {
+  }
+  &__link-wrapper {
+    text-align: center;
+  }
+  &__link {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: calc(27 / 20);
+    color: #ffffff;
+    padding: 27px 138px 31px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(50px);
+    border-radius: 85px;
+    transition: outline 0.2s, letter-spacing 0.4s, box-shadow 0.2s;
+    &:hover {
+      letter-spacing: 1.3px;
+      box-shadow: 0px 0px 15px rgba(#fff, 0.5);
+    }
+  }
+}
+.swiper-who {
+  color: #fff;
+  &__wrapper {
+    margin-bottom: 70px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:hover {
+      .swiper-who__text {
+        background-color: rgba(#fff, 0.1);
+      }
+      .swiper-who__title {
+        letter-spacing: 1px;
+      }
+    }
+  }
+  &__img-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 13px;
+  }
+  &__img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &__title {
+    font-weight: 800;
+    @include adaptive-value("font-size", 17, 16, 1);
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    max-width: 280px;
+    transition: letter-spacing 0.3s;
+  }
+  &__text {
+    line-height: 1.5;
+    @include adaptive-value("font-size", 18, 16, 1);
+    max-width: 280px;
+    transition: background-color 0.3s;
+  }
+  &__pagination {
+    position: absolute;
+    bottom: -33px !important;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 -6px;
+    opacity: 0;
+    visibility: none;
+  }
+  &__bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff7697;
+    opacity: 0.2;
+    margin: 0 6px;
+    transition: opacity 0.2s;
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+// font-family: 'Dela Gothic One', cursive;
+// font-family: 'Lato', sans-serif;
+// font-family: 'Manrope', sans-serif;
+
+*::-webkit-scrollbar {
+  width: 12px; /* ширина scrollbar */
+}
+*::-webkit-scrollbar-track {
+  background: #ddd; /* цвет дорожки */
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bea6be; /* цвет плашки */
+  &:active {
+    background-color: #a573a5;
+  }
+  border: 1px solid #ddd; /* padding вокруг плашки */
+}
+
+@import "media";

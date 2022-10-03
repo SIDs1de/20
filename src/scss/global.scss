@@ -1,0 +1,39 @@
+// Здесь находятся все глобальные стили проекта, например блоки по БЭМу
+
+.title {
+  font-family: "Dela Gothic One";
+  font-size: 64px;
+  line-height: calc(93 / 64);
+  color: #ff7697;
+  text-align: center;
+  span {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      width: 0;
+      background-color: #ff7697;
+      transition: width .45s;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  &--white {
+    color: #fff;
+    span {
+      &::before {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &:hover {
+  }
+}
