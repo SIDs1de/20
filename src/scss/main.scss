@@ -1,5 +1,12 @@
 // Главный файл, где пишутся и куда подключаются все стили проекта
 
+// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
+// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
+// увеличивались / уменьшались в границах от десктопного значения до телефонного
+// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
+$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
+$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
+
 // Импорт дополнительных файлов стилей и настроек
 @import "variables";
 @import "../../node_modules/normalize.css/normalize";
@@ -8,13 +15,6 @@
 @import "mixins/adaptive-value";
 @import "fonts";
 @import "global";
-
-// Адаптивное свойство - используется, если дизайнером предоставлен неполный макет,
-// чтобы при уменьшении или увеличении экрана паддинги, размеры шрифта автоматически
-// увеличивались / уменьшались в границах от десктопного значения до телефонного
-// Подробнее: https://www.youtube.com/watch?v=eaOAY0vIB4U
-$maxWidth: 1920; // Для масштабирования, например, текста, если экран будет увеличиваться и станет больше контейнера
-$maxWidthContainer: 1200; // Для масштабирования, например, текста, если экран будет уменьшаться и станет меньше контейнера
 
 // Основные свойства
 html,
@@ -55,6 +55,33 @@ ol {
   padding: 0;
 }
 
+// .about {
+//   display: none;
+// }
+// .who {
+//   display: none;
+// }
+// .comfort {
+//   display: none;
+// }
+// .what {
+//   display: none;
+// }
+// .program {
+//   display: none;
+// }
+// .how {
+//   display: none;
+// }
+
+// .questions-rates-wrapper {
+//   display: none;
+// }
+
+// .wait {
+//   display: none;
+// }
+
 // Основная часть
 * {
   outline: 0px solid rgba(251, 150, 255, 0.25);
@@ -67,13 +94,11 @@ ol {
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   position: relative;
   transition: background-position 0.8s;
-  &:hover {
-    background-position: 0 0;
-  }
   &::before,
   &::after {
     content: "";
     position: absolute;
+    display: none;
   }
   &::before {
     width: 472px;
@@ -92,7 +117,7 @@ ol {
     z-index: 2;
   }
   &__inner {
-    padding-top: 134px;
+    @include adaptive-value("padding-top", 134, 54, 1);
     padding-bottom: 350px;
     position: relative;
     overflow: hidden;
@@ -112,28 +137,13 @@ ol {
   &__text {
     font-weight: 300;
     font-size: 20px;
+    @include adaptive-value("font-size", 20, 14, 1);
     line-height: 130%;
     color: #fff;
     flex: 0 1 380px;
     position: relative;
     z-index: 4;
     position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 1px;
-      width: 0;
-      background-color: rgba(#fff, 0.6);
-      transition: width 0.4s;
-    }
-    &:hover {
-      &::before {
-        width: 100%;
-      }
-    }
   }
   &__title-bottom {
     display: flex;
@@ -155,8 +165,7 @@ ol {
 
 .main-title {
   font-family: "Dela Gothic One";
-  font-weight: 400;
-  font-size: 157px;
+  @include adaptive-value("font-size", 157, 62, 1);
   line-height: 1;
   background: linear-gradient(93.75deg, #ffffff -2.53%, #efefef 79.58%, #ffffff 102.44%);
   -webkit-background-clip: text;
@@ -164,9 +173,6 @@ ol {
   background-clip: text;
   text-fill-color: transparent;
   transition: transform 0.6s;
-  &:hover {
-    transform: scale(1.05);
-  }
   &--bottom {
     transform-origin: left;
     position: relative;
@@ -232,7 +238,7 @@ ol {
   left: 51%;
   z-index: 2;
   transform: translateX(-50%);
-  width: 835px;
+  @include adaptive-value("width", 835, 380, 1);
   transition: filter 0.4s;
   &__img {
     width: 100%;
@@ -244,9 +250,6 @@ ol {
   background: url("../images/global/main-bg.jpg") center/cover no-repeat fixed;
   position: relative;
   transition: background-position 0.8s;
-  &:hover {
-    background-position: 100% 100%;
-  }
   &::before {
     content: "";
     position: absolute;
@@ -313,9 +316,6 @@ ol {
     height: 578px;
     background: url("../images/who/bolt.png") center/contain no-repeat;
     z-index: 2;
-  }
-  &:hover {
-    background-position: 100% 100%;
   }
   &__inner {
   }
@@ -401,9 +401,6 @@ ol {
 .comfort {
   background: url("../images/global/main-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  &:hover {
-    background-position: 0% 0%;
-  }
   &__inner {
   }
   &__img-wrapper {
@@ -434,9 +431,6 @@ ol {
   padding-top: 98px;
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  &:hover {
-    background-position: 100% 100%;
-  }
   &__inner {
     padding-bottom: 135px;
   }
@@ -494,9 +488,6 @@ ol {
     transform: translateY(75%);
     background: url("../images/program/leave-1.png") center/contain no-repeat;
     z-index: 2;
-  }
-  &:hover {
-    background-position: 0 0;
   }
   &__inner {
     padding: 150px 0 190px;
@@ -577,9 +568,6 @@ ol {
     background: url("../images/header/leave-2.png") center/contain no-repeat;
     z-index: 2;
   }
-  &:hover {
-    background-position: 100% 100%;
-  }
   &__inner {
   }
   &__title {
@@ -656,9 +644,6 @@ ol {
 .questions-rates-wrapper {
   background: url("../images/global/main-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  &:hover {
-    background-position: 0 0;
-  }
 }
 .questions {
   padding-top: 150px;
@@ -926,9 +911,6 @@ ol {
     width: 600px;
     height: 581px;
     background: url("../images/footer/trava.png") center/contain no-repeat;
-  }
-  &:hover {
-    background-position: 100% 100%;
   }
   &__inner {
   }

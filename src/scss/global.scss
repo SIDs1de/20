@@ -59,10 +59,13 @@
 }
 
 .main-btn {
-  font-size: 20px;
+  @include adaptive-value("font-size", 20, 16, 1);
   line-height: calc(27 / 20);
   color: #fff;
-  padding: 27px 127px 31px;
+  padding-right: 127px;
+  padding-left: 127px;
+  @include adaptive-value("padding-top", 27, 22, 1);
+  @include adaptive-value("padding-bottom", 31, 26, 1);
   background: linear-gradient(92.44deg, #ff7676 0%, #ff76f1 100%);
   backdrop-filter: blur(50px);
   border-radius: 85px;
@@ -70,12 +73,6 @@
   span {
     position: relative;
     z-index: 1;
-  }
-  &:hover {
-    transform: rotate(3deg);
-  }
-  &:hover::after {
-    opacity: 1;
   }
   &::after {
     content: "";

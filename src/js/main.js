@@ -228,8 +228,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const animate = () => {
+    if (window.innerWidth <= 1200) {
+      const inst = document.querySelector('.insta');
+
+      if (inst.classList.contains('animate__fadeInRight')) {
+        inst.classList.remove('animate__fadeInRight');
+        inst.classList.add('animate__fadeIn');
+      }
+    }
+  };
 
   window.addEventListener('resize', swiperActive);
+  animate();
+  window.addEventListener('resize', animate);
   questions();
   swiperActive();
   wowF();
