@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const wowF = () => {
-  //   new WOW().init();
-  // };
+  new WOW().init();
 
   const whoSlider = new Swiper('.swiper-who', {
     // Свои классы
@@ -250,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', swiperActive);
   animate();
   window.addEventListener('resize', animate);
-  questions();
   swiperActive();
-  wowF();
+  questions();
 });

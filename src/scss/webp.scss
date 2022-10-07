@@ -1,0 +1,15 @@
+.webp {
+  .insta {
+    &__title {
+      background-image: url("../images/header/insta-bg.jpg");
+    }
+  }
+}
+
+.no-webp {
+  .insta {
+    &__title {
+      background-image: url("../images/header/insta-bg.jpg");
+    }
+  }
+}
