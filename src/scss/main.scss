@@ -667,19 +667,6 @@ ol {
     border: 1px solid transparent;
     border-image: linear-gradient(252.42deg, #ff7697 0%, rgba(255, 118, 151, 0) 47.4%, #ff7697 100%);
     border-image-slice: 1;
-    &.active {
-      .questions__body {
-        padding-bottom: 40px;
-      }
-      .questions__head {
-        &::after {
-          transform: translateY(-50%) rotate(135deg);
-        }
-        &::before {
-          width: calc(100% - 80px);
-        }
-      }
-    }
   }
   &__item + &__item {
     margin-top: 20px;
@@ -703,6 +690,15 @@ ol {
       @include adaptive-value("height", 18, 12, 1);
       background: url("../images/questions/plus.svg") center/contain no-repeat;
       transition: transform 0.5s;
+    }
+
+    &.active {
+      &::after {
+        transform: translateY(-50%) rotate(135deg);
+      }
+      &::before {
+        width: calc(100% - 80px);
+      }
     }
   }
   &__body {
