@@ -218,6 +218,11 @@
         transform: scale(1.08);
       }
     }
+    &__item {
+      &:hover {
+        background-position: 0 0;
+      }
+    }
   }
 }
 
@@ -268,7 +273,8 @@
   .program,
   .how,
   .questions-rates-wrapper,
-  .wait {
+  .wait,
+  .rates__item {
     background-attachment: scroll;
   }
 

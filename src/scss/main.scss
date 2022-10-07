@@ -759,9 +759,6 @@ ol {
     transition: background-position 0.8s;
     border-radius: 40px;
     color: #fff;
-    &:hover {
-      background-position: 0 0;
-    }
   }
   &__num {
     background: linear-gradient(135deg, #ff517b 0%, #ff7697 34.13%, #ff517b 100%);
