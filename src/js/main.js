@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const wowF = () => {
-    new WOW().init();
-  };
+  // const wowF = () => {
+  //   new WOW().init();
+  // };
 
   const whoSlider = new Swiper('.swiper-who', {
     // Свои классы

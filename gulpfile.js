@@ -21,7 +21,6 @@ function browsersync() {
     server: {
       baseDir: 'src',
     },
-    // proxy: 'example.ru',
     notify: false,
   });
 }
