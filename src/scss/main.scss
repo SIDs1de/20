@@ -576,7 +576,7 @@ ol {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 16, 1);
     line-height: 150%;
     text-align: center;
     color: #fff;
