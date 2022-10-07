@@ -664,6 +664,9 @@ ol {
     background: #fff;
     filter: drop-shadow(0px 10px 100px rgba(0, 0, 0, 0.03));
     width: 100%;
+    border: 1px solid transparent;
+    border-image: linear-gradient(252.42deg, #ff7697 0%, rgba(255, 118, 151, 0) 47.4%, #ff7697 100%);
+    border-image-slice: 1;
     &.active {
       .questions__body {
         padding-bottom: 40px;
@@ -690,9 +693,6 @@ ol {
     @include adaptive-value("padding-right", 80, 50, 1);
     transition: letter-spacing 0.4s;
     @include adaptive-value("font-size", 19, 12, 1);
-    border: 1px solid transparent;
-    border-image: linear-gradient(252.42deg, #ff7697 0%, rgba(255, 118, 151, 0) 47.4%, #ff7697 100%);
-    border-image-slice: 1;
     &::after {
       content: "";
       position: absolute;
