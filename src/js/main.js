@@ -239,6 +239,12 @@ document.addEventListener('DOMContentLoaded', () => {
         inst.classList.add('animate__fadeIn');
       }
     }
+
+    const titles = document.querySelectorAll('.title');
+
+    titles.forEach((title) => {
+      title.classList.add('wow', 'animate__animated', 'animate__fadeInUp');
+    });
   };
 
   window.addEventListener('resize', swiperActive);

@@ -527,7 +527,7 @@ ol {
   }
   &__pagination {
     position: absolute;
-    bottom: 150px !important;
+    bottom: 130px !important;
     left: 50%;
     display: flex;
     justify-content: center;
@@ -552,7 +552,8 @@ ol {
 .how {
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  padding: 122px 0 138px;
+  @include adaptive-value("padding-top", 122, 46, 1);
+  @include adaptive-value("padding-bottom", 138, 130, 1);
   position: relative;
   &::before {
     content: "";
@@ -564,6 +565,7 @@ ol {
     transform: translateY(50%) rotate(65deg) scale(-1, 1);
     background: url("../images/header/leave-2.png") center/contain no-repeat;
     z-index: 2;
+    display: none;
   }
   &__inner {
   }
@@ -572,24 +574,23 @@ ol {
   }
   &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     font-size: 20px;
     line-height: 150%;
     text-align: center;
     color: #fff;
-    margin-bottom: 73px;
+    margin: -30px -15px 43px;
   }
   &__item {
+    margin: 30px 15px;
     flex: 0 1 350px;
     flex-wrap: wrap;
     transition: transform 0.5s;
-    &:hover {
-      transform: scale(1.07);
-    }
   }
   &__item-num {
     font-family: "Dela Gothic One", cursive;
-    font-size: 177.886px;
+    @include adaptive-value("font-size", 177, 96, 1);
     line-height: 120%;
     text-align: center;
     color: #ff7697;
@@ -632,7 +633,7 @@ ol {
   }
   &__link {
     font-weight: 300;
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 16, 1);
     line-height: calc(27 / 20);
     color: #ffffff;
   }
@@ -643,14 +644,14 @@ ol {
   transition: background-position 0.8s;
 }
 .questions {
-  padding-top: 150px;
-  margin-bottom: 200px;
+  @include adaptive-value("padding-top", 150, 105, 1);
+  @include adaptive-value("margin-bottom", 200, 130, 1);
   &__inner {
     max-width: 980px;
     margin: 0 auto;
   }
   &__title {
-    margin: 64px;
+    @include adaptive-value("margin-bottom", 64, 40, 1);
   }
   &__list {
     display: flex;
@@ -692,9 +693,6 @@ ol {
     @include adaptive-value("padding-right", 80, 50, 1);
     transition: letter-spacing 0.4s;
     @include adaptive-value("font-size", 19, 12, 1);
-    &:hover {
-      letter-spacing: 0.8px;
-    }
     &::after {
       content: "";
       position: absolute;
@@ -749,13 +747,16 @@ ol {
     margin: 0 auto;
   }
   &__title {
-    margin-bottom: 100px;
+    @include adaptive-value("margin-bottom", 100, 70, 1);
   }
   &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -30px -10px;
   }
   &__item {
+    margin: 30px 10px;
     position: relative;
     flex: 0 1 480px;
     background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
@@ -774,26 +775,27 @@ ol {
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Dela Gothic One", cursive;
-    font-size: 42px;
-    line-height: 95px;
+    @include adaptive-value("font-size", 42, 24, 1);
+    @include adaptive-value("line-height", 95, 55, 1);
     text-align: center;
     border-radius: 50%;
-    color: #ffffff;
-    width: 103px;
-    height: 103px;
+    color: #fff;
+    @include adaptive-value("width", 103, 59, 1);
+    @include adaptive-value("height", 103, 59, 1);
   }
   &__item-container {
-    padding: 90px 0 66px;
+    @include adaptive-value("padding-top", 90, 50, 1);
+    @include adaptive-value("padding-bottom", 66, 30, 1);
     display: flex;
     flex-direction: column;
     min-height: 100%;
   }
   &__item-title {
     font-family: "Dela Gothic One", cursive;
-    font-size: 36px;
+    @include adaptive-value("font-size", 36, 20, 1);
     line-height: calc(52 / 36);
     text-align: center;
-    margin-bottom: 50px;
+    @include adaptive-value("margin-bottom", 50, 25, 1);
     position: relative;
     &::before {
       content: "";
@@ -819,13 +821,13 @@ ol {
   }
   &__item-list {
     list-style-type: disc;
-    padding: 0 64px 0 95px;
-    font-size: 20px;
+    padding-left: 95px;
+    padding-right: 64px;
+    @include adaptive-value("padding-left", 95, 43, 1);
+    @include adaptive-value("padding-right", 64, 26, 1);
+    @include adaptive-value("font-size", 20, 14, 1);
     line-height: 170%;
     transition: transform 0.4s;
-    &:hover {
-      transform: scale(1.08);
-    }
     &:first-of-type {
       flex: 1 0 auto;
     }
@@ -837,7 +839,7 @@ ol {
   }
   &__item-list--inactive {
     opacity: 0.3;
-    margin-bottom: 54px;
+    @include adaptive-value("margin-bottom", 54, 24, 1);
   }
   &__prices-wrapper {
     display: flex;
@@ -846,7 +848,7 @@ ol {
   }
   &__inactive-price {
     font-family: "Dela Gothic One", cursive;
-    font-size: 28px;
+    @include adaptive-value("font-size", 28, 23, 1);
     line-height: calc(41 / 28);
     text-align: center;
     text-decoration-line: line-through;
@@ -859,11 +861,11 @@ ol {
   }
   &__active-price {
     font-family: "Dela Gothic One", cursive;
-    font-size: 44px;
+    @include adaptive-value("font-size", 44, 35, 1);
     line-height: calc(64 / 44);
     text-align: center;
     color: #ff7697;
-    margin-bottom: 33px;
+    @include adaptive-value("margin-bottom", 33, 19, 1);
     transition: color 0.3s;
     &:hover {
       color: #ff527b;
@@ -873,7 +875,7 @@ ol {
     text-align: center;
   }
   &__link {
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 16, 1);
     line-height: calc(27 / 20);
     background: linear-gradient(92.44deg, #ff7676 0%, #ff76f1 100%);
     backdrop-filter: blur(50px);
@@ -897,7 +899,8 @@ ol {
 .wait {
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  padding: 200px 0 90px;
+  @include adaptive-value("padding-top", 200, 120, 1);
+  @include adaptive-value("padding-bottom", 90, 77, 1);
   position: relative;
   &::before {
     content: "";
@@ -923,7 +926,7 @@ ol {
   }
   &__link-wrapper {
     text-align: center;
-    margin-bottom: 166px;
+    @include adaptive-value("margin-bottom", 166, 120, 1);
   }
   &__link {
   }
@@ -1013,6 +1016,10 @@ ol {
 html {
   scrollbar-width: thin; /* "auto" или "thin"  */
   scrollbar-color: #bea6be #ddd; /* плашка скролла и дорожка */
+}
+
+*::selection {
+  background: rgba(#ffb7b7, 0.6); /* Safari */
 }
 
 @import "media";
