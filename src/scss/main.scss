@@ -55,33 +55,6 @@ ol {
   padding: 0;
 }
 
-// .about {
-//   display: none;
-// }
-// .who {
-//   display: none;
-// }
-// .comfort {
-//   display: none;
-// }
-// .what {
-//   display: none;
-// }
-// .program {
-//   display: none;
-// }
-// .how {
-//   display: none;
-// }
-
-// .questions-rates-wrapper {
-//   display: none;
-// }
-
-// .wait {
-//   display: none;
-// }
-
 // Основная часть
 * {
   outline: 0px solid rgba(251, 150, 255, 0.25);
@@ -246,7 +219,8 @@ ol {
 }
 
 .about {
-  padding: 130px 0 185px;
+  padding: 130px 0 0;
+  @include adaptive-value("padding-bottom", 185, 125, 1);
   background: url("../images/global/main-bg.jpg") center/cover no-repeat fixed;
   position: relative;
   transition: background-position 0.8s;
@@ -260,6 +234,7 @@ ol {
     transform: translateY(45%) rotate(-65deg);
     right: -100px;
     z-index: 2;
+    display: none;
   }
   &__inner {
   }
@@ -275,6 +250,7 @@ ol {
     color: #000000;
   }
   &__par {
+    @include adaptive-value("font-size", 20, 16, 1);
     span {
       color: #ff7697;
       font-weight: 800;
@@ -293,11 +269,13 @@ ol {
   position: relative;
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
-  padding: 100px 0 145px;
+  @include adaptive-value("padding-top", 100, 70, 1);
+  @include adaptive-value("padding-bottom", 145, 130, 1);
   &::before,
   &::after {
     content: "";
     position: absolute;
+    display: none;
   }
   &::before {
     left: 0;
@@ -318,9 +296,10 @@ ol {
     z-index: 2;
   }
   &__inner {
+    position: relative;
   }
   &__title {
-    margin-bottom: 67px;
+    @include adaptive-value("margin-bottom", 67, 45, 1);
   }
   &__list {
   }
@@ -361,8 +340,7 @@ ol {
   }
   &__title {
     font-weight: 800;
-    @include adaptive-value("font-size", 17, 16, 1);
-    font-size: 17px;
+    @include adaptive-value("font-size", 20, 17, 1);
     line-height: 1.5;
     margin-bottom: 12px;
     max-width: 280px;
@@ -376,7 +354,7 @@ ol {
   }
   &__pagination {
     position: absolute;
-    bottom: -33px !important;
+    bottom: 150px !important;
     left: 50%;
     display: flex;
     justify-content: center;
@@ -404,21 +382,19 @@ ol {
   &__inner {
   }
   &__img-wrapper {
-    padding-top: 140px;
-    margin-bottom: 60px;
+    @include adaptive-value("padding-top", 140, 110, 1);
+    @include adaptive-value("margin-bottom", 60, 30, 1);
     text-align: center;
   }
   &__phone-img {
     transition: transform 0.5s;
-    &:hover {
-      transform: scale(1.1);
-    }
+    @include adaptive-value("width", 735, 320, 1);
   }
   &__text {
     padding-bottom: 138px;
   }
   &__par {
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 14, 1);
     line-height: 140%;
     text-align: center;
     color: #000;
@@ -428,7 +404,7 @@ ol {
 }
 
 .what {
-  padding-top: 98px;
+  @include adaptive-value("padding-top", 100, 70, 1);
   background: url("../images/global/black-bg.jpg") center/cover no-repeat fixed;
   transition: background-position 0.8s;
   &__inner {
@@ -440,7 +416,7 @@ ol {
   &__text-wrapper {
     max-width: 520px;
     margin: 0 auto 42px;
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 16, 1);
     line-height: 150%;
     text-align: center;
     color: #fff;
@@ -448,9 +424,10 @@ ol {
   &__par {
   }
   &__video-wrapper {
-    width: 780px;
+    max-width: 780px;
+    width: 100%;
     margin: 0 auto;
-    padding: 33px;
+    @include adaptive-value("padding", 33, 10, 1);
     position: relative;
     border: 1px solid transparent;
     border-image: linear-gradient(252.42deg, #ff7697 0%, rgba(255, 118, 151, 0) 47.4%, #ff7697 100%);
@@ -461,9 +438,6 @@ ol {
     padding-top: 56.25%;
     width: 100%;
     transition: transform 0.4s;
-    &:hover {
-      transform: scale(1.2);
-    }
   }
   &__video-player {
     position: absolute;
@@ -488,12 +462,15 @@ ol {
     transform: translateY(75%);
     background: url("../images/program/leave-1.png") center/contain no-repeat;
     z-index: 2;
+    display: none;
   }
   &__inner {
-    padding: 150px 0 190px;
+    position: relative;
+    @include adaptive-value("padding-top", 150, 100, 1);
+    @include adaptive-value("padding-bottom", 190, 170, 1);
   }
   &__title {
-    margin-bottom: 90px;
+    @include adaptive-value("margin-bottom", 90, 55, 1);
   }
 }
 .swiper-program {
@@ -504,9 +481,6 @@ ol {
     box-shadow: 0px 10px 100px rgba(0, 0, 0, 0.03);
     border-radius: 30px;
     transition: transform 0.3s;
-    &:hover {
-      transform: scale(0.95);
-    }
   }
   &__card {
   }
@@ -515,13 +489,14 @@ ol {
   }
   &__card-title {
     font-family: "Dela Gothic One", cursive;
-    font-size: 32px;
+    @include adaptive-value("font-size", 32, 24, 1);
     line-height: calc(46 / 32);
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #ffabbf;
-    margin: 23px 0 27px;
+    margin-top: 23px;
+    @include adaptive-value("margin-bottom", 28, 21, 1);
     transition: color 0.2s;
     &:hover {
       color: darken(#ffabbf, 10%);
@@ -529,13 +504,15 @@ ol {
   }
   &__bottom {
     margin-top: 24px;
-    padding: 0 36px 92px;
+    @include adaptive-value("padding-left", 36, 24, 1);
+    @include adaptive-value("padding-right", 36, 24, 1);
+    @include adaptive-value("padding-bottom", 65, 40, 1);
   }
   &__bottom-text {
-    font-size: 18px;
+    @include adaptive-value("font-size", 18, 16, 1);
     line-height: 150%;
     color: rgba(0, 0, 0, 0.8);
-    padding-left: 20px;
+    @include adaptive-value("padding-left", 20, 10, 1);
   }
   &__item-item {
     transition: color 0.2s;
@@ -544,11 +521,31 @@ ol {
     }
   }
   &__item-item + &__item-item {
-    margin-top: 18px;
+    @include adaptive-value("margin-top", 18, 16, 1);
   }
   &__list {
   }
   &__pagination {
+    position: absolute;
+    bottom: 150px !important;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 -6px;
+    opacity: 0;
+    visibility: none;
+  }
+  &__bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff7697;
+    opacity: 0.2;
+    margin: 0 6px;
+    transition: opacity 0.2s;
+    &--active {
+      opacity: 1;
+    }
   }
 }
 

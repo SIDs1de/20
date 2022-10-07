@@ -198,8 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const swiperActive = () => {
     if (window.innerWidth <= 1000) {
       whoSlider.enabled = true;
+      programSlider.enabled = true;
     } else {
       whoSlider.enabled = false;
+      programSlider.enabled = false;
     }
   };
 

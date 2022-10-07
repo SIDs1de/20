@@ -2,7 +2,7 @@
 
 .title {
   font-family: "Dela Gothic One";
-  font-size: 64px;
+  @include adaptive-value("font-size", 64, 32, 1);
   line-height: calc(93 / 64);
   color: #ff7697;
   text-align: center;
@@ -33,16 +33,13 @@
       }
     }
   }
-
-  &:hover {
-  }
 }
 
 .main-link {
   text-align: center;
   &__link {
     font-weight: 300;
-    font-size: 20px;
+    @include adaptive-value("font-size", 20, 16, 1);
     line-height: calc(27 / 20);
     color: #ffffff;
     padding: 27px 138px 31px;
