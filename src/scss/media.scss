@@ -259,6 +259,18 @@
       text-align: center;
     }
   }
+
+  .header,
+  .about,
+  .who,
+  .comfort,
+  .what,
+  .program,
+  .how,
+  .questions-rates-wrapper,
+  .wait {
+    background-attachment: scroll;
+  }
 }
 
 @media (max-width: 450px) {
