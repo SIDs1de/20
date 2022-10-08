@@ -669,7 +669,7 @@ ol {
     border-image-slice: 1;
     &.active {
       .questions__body {
-        padding-bottom: 40px;
+        @include adaptive-value("padding-bottom", 40, 20, 1);
       }
       .questions__head {
         &::after {
@@ -741,7 +741,7 @@ ol {
 }
 
 .rates {
-  padding-bottom: 200px;
+  @include adaptive-value("padding-bottom", 200, 120, 1);
   &__inner {
     max-width: 1000px;
     margin: 0 auto;
