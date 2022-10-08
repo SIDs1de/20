@@ -22,6 +22,7 @@ function browsersync() {
       baseDir: 'src',
     },
     notify: false,
+    online: true,
   });
 }
 
